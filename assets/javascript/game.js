@@ -5,12 +5,10 @@ var choosenWord = word[randNum];
 var underScore = [];
 var rightWord=  [];
 var wrongWord = [];
+var lives = [];
 
-var winCount = 0;
-var loseCount = 0;
-var guessesLeft = 9;
-var rightGuessCounter = 0;
 
+var showLives = document.getElementById("myLives");
 
 var docUnderScore = document.getElementsByClassName('underscore');
 var docRightGuess = document.getElementsByClassName('rightGuess');
@@ -48,4 +46,15 @@ document.addEventListener("keypress", (event) => {
     
 });
 
+comments = function () {
+    showLives.innerHTML = "You have " + lives + " lives";
+    if (lives < 1) {
+      showLives.innerHTML = "Game Over";
+    }
+    for (var i = 0; i < choosenWord.length; i++) {
+      if (counter + space === rightWord.length) {
+        showLives.innerHTML = "You Win!";
+      }
+    }
+  }
 
